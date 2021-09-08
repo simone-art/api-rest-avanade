@@ -12,5 +12,5 @@ public class Product implements Serializable {
     private int quantidade;
     private String porte;
     private String categoria;
-    private String departamento; 
+    private String departamento;
 }
