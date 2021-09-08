@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 @Document
 public class Product implements Serializable {
-    
+
     @Id
     private long codigo;
     private String nome;
