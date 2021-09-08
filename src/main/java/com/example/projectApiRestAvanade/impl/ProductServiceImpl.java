@@ -16,16 +16,17 @@ public class ProductServiceImpl implements ProductService {
     
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        return this.productRepository.findAll();
     }
 
     @Override
-    public Product getProductFromId(Long codigo) {
-        return null;
+    public Product getProductById(Long codigo) {
+        return this.productRepository.findById(codigo)
+                .orElseThrow(()-> new IllegalArgumentException("Produto nao existe"));
     }
 
     @Override
     public Product createProduct(Product product) {
-        return null;
+        return this.productRepository.save(product);
     }
 }
