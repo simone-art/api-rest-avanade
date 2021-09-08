@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 import java.io.Serializable;
 
 @Data
@@ -17,5 +18,5 @@ public class Product implements Serializable {
     private int quantidade;
     private String porte;
     private String categoria;
-    private String departamento; 
+    private String departamento;
 }
