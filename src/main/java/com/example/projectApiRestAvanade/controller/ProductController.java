@@ -24,7 +24,7 @@ public class ProductController {
     public Product getProductById(@PathVariable Long codigo){
         return this.productService.getProductById(codigo);
 
-    }
+    } 
 
     @PostMapping
     public Product create(@RequestBody Product product){
