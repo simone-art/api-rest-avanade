@@ -15,6 +15,7 @@ public class Product implements Serializable {
     @Id
     private long codigo;
     private String nome;
+    private String marca;
     private int quantidade;
     private String porte;
     private String categoria;
