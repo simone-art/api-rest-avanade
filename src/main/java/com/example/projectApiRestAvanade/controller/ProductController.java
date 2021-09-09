@@ -4,8 +4,6 @@ import com.example.projectApiRestAvanade.entity.Product;
 import com.example.projectApiRestAvanade.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -21,7 +19,7 @@ public class ProductController {
     }
 
     @GetMapping("/codigo")
-    public Product getProductById(@PathVariable Long codigo){
+    public Product getProductById(@PathVariable String codigo){
         return this.productService.getProductById(codigo);
 
     }

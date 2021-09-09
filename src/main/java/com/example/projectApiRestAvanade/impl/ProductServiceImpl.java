@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long codigo) {
+    public Product getProductById(String codigo) {
         return this.productRepository.findById(codigo)
                 .orElseThrow(()-> new IllegalArgumentException("Produto nao existe"));
     }
