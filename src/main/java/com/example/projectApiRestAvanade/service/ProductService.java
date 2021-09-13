@@ -12,5 +12,6 @@ public interface ProductService {
 
         public Product createProduct(Product product);
 
+        public void deleteProduct(String codigo);
 
 }

@@ -30,4 +30,12 @@ public class ProductController {
 
     }
 
+    @DeleteMapping("/{codigo}")
+    public String delete(@PathVariable String codigo){
+        productService.deleteProduct(codigo);
+        System.out.println("Producto deletado com sucesso");
+        return "Deletado com sucesso";
+    }
+
+
 }

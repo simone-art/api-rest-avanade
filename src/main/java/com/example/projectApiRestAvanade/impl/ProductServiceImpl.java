@@ -29,4 +29,12 @@ public class ProductServiceImpl implements ProductService {
     public Product createProduct(Product product) {
         return this.productRepository.save(product);
     }
+
+    @Override
+    public void deleteProduct(String codigo) {
+        productRepository.deleteById(codigo);
+    }
+
+
+
 }
