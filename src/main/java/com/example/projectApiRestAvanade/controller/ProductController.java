@@ -1,7 +1,9 @@
 package com.example.projectApiRestAvanade.controller;
 
 import com.example.projectApiRestAvanade.entity.Product;
+import com.example.projectApiRestAvanade.repository.ProductRepository;
 import com.example.projectApiRestAvanade.service.ProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -12,6 +14,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping
     public List<Product> getAllProduct(){
@@ -31,11 +36,21 @@ public class ProductController {
     }
 
     @DeleteMapping("/{codigo}")
-    public String delete(@PathVariable String codigo){
+    public String deleteProduct(@PathVariable String codigo){
         productService.deleteProduct(codigo);
         System.out.println("Producto deletado com sucesso");
         return "Deletado com sucesso";
     }
+
+    @PutMapping("/{codigo}")
+    public String updateProduct(@PathVariable String codigo, @RequestBody Product product){
+        Product existingProduct = productService.getProductById(codigo);
+        BeanUtils.copyProperties(product, existingProduct, "product_id");
+        System.out.println("Produto atualizado com sucesso");
+        productRepository.save(existingProduct);
+        return "Produto atualizado com sucesso";
+    }
+
 
 
 }
