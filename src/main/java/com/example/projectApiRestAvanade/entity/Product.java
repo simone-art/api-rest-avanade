@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -24,6 +25,7 @@ public class Product implements Serializable {
     @NotBlank(message = "Campo nao pode estar em branco")
     private String marca;
 
+    @Max(value = 5, message = "O minimo requerido é 5")
     @NotNull(message = "Campo nao pode ser nulo")
     private int quantidade;
 
