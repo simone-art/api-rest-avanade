@@ -18,21 +18,21 @@ public class Product implements Serializable {
     @Id
     private String codigo;
 
-    @NotBlank
+    @NotBlank(message = "Campo nao pode estar em branco")
     private String nome;
 
-    @NotBlank
+    @NotBlank(message = "Campo nao pode estar em branco")
     private String marca;
 
-    @NotNull
+    @NotNull(message = "Campo nao pode ser nulo")
     private int quantidade;
 
-    @NotBlank
+    @NotBlank(message = "Campo nao pode estar em branco")
     private String porte;
 
-    @NotBlank
+    @NotBlank(message = "Campo nao pode estar em branco")
     private String categoria;
 
-    @NotBlank
+    @NotBlank(message = "Campo nao pode estar em branco")
     private String departamento;
 }
