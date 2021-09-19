@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -14,7 +16,6 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
     @Id
-    @NotBlank
     private String codigo;
 
     @NotBlank
@@ -23,7 +24,7 @@ public class Product implements Serializable {
     @NotBlank
     private String marca;
 
-    @NotBlank
+    @NotNull
     private int quantidade;
 
     @NotBlank
