@@ -40,6 +40,10 @@ public class ProductServiceImpl implements ProductService {
         return this.productRepository.save(product);
     }
 
+    public Product saveProduct(Product product){
+        return this.productRepository.save(product);
+    }
+
 
 
 }

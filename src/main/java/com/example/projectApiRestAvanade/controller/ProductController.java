@@ -47,7 +47,7 @@ public class ProductController {
         Product existingProduct = productService.getProductById(codigo);
         BeanUtils.copyProperties(product, existingProduct, "product_id");
         System.out.println("Produto atualizado com sucesso");
-        productRepository.save(existingProduct);
+        productService.saveProduct(existingProduct);
         return "Produto atualizado com sucesso";
     }
 

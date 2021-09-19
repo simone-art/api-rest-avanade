@@ -16,5 +16,7 @@ public interface ProductService {
 
         public Product updateProduct(String codigo, Product product);
 
+        public Product saveProduct(Product product);
+
 
 }
