@@ -1,10 +1,14 @@
 package com.example.projectApiRestAvanade.entity;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
+@Data
+@Document
 public class Categoria implements Serializable {
 
     @Id

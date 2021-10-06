@@ -1,7 +1,7 @@
 package com.example.projectApiRestAvanade.service;
 
 import com.example.projectApiRestAvanade.entity.Categoria;
-import com.example.projectApiRestAvanade.entity.Product;
+
 
 import java.util.List;
 
