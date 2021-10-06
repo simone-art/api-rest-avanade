@@ -30,9 +30,4 @@ public class Product implements Serializable {
     @NotBlank(message = "Campo nao pode estar em branco")
     private String porte;
 
-    @NotBlank(message = "Campo nao pode estar em branco")
-    private String categoria;
-
-    @NotBlank(message = "Campo nao pode estar em branco")
-    private String departamento;
-}
+   }
