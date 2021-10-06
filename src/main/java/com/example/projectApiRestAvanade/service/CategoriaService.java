@@ -11,7 +11,7 @@ public interface CategoriaService {
 
     public Categoria getCategoriaById(String codigo);
 
-    public Categoria createCategoria(Categoria categoria);
+    public Categoria createdCategoria(Categoria categoria);
 
     public void deleteCategoria(String codigo);
 

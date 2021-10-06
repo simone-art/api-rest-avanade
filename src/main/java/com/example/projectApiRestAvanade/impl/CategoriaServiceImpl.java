@@ -27,7 +27,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Categoria createCategoria(Categoria categoria) {
+    public Categoria createdCategoria(Categoria categoria) {
         return this.categoriaRepository.save(categoria);
     }
 
