@@ -4,9 +4,6 @@ package com.example.projectApiRestAvanade.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 
@@ -15,7 +12,7 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
     @Id
-    private String codigo;
+   private String codigo;
 
     @NotBlank(message = "Campo nao pode estar em branco")
     private String nome;
