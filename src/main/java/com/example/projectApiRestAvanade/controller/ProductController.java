@@ -1,7 +1,10 @@
 package com.example.projectApiRestAvanade.controller;
 
+import com.example.projectApiRestAvanade.entity.Categoria;
 import com.example.projectApiRestAvanade.entity.Product;
+import com.example.projectApiRestAvanade.repository.CategoriaRepository;
 import com.example.projectApiRestAvanade.repository.ProductRepository;
+import com.example.projectApiRestAvanade.service.CategoriaService;
 import com.example.projectApiRestAvanade.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +26,7 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
-    private ProductRepository productRepository;
+    private CategoriaService categoriaService;
 
     @GetMapping
     public List<Product> getAllProduct(){
@@ -74,6 +77,39 @@ public class ProductController {
             errors.put(fieldName, errorMensage);
         });
         return errors;
+    }
+
+    @GetMapping
+    public List<Categoria> getAllCategoria(){
+        return this.categoriaService.getAllCategorias();
+    }
+
+    @GetMapping("/{codigo}")
+    public Categoria getCategoriaById(@PathVariable String codigo){
+        return this.categoriaService.getCategoriaById(codigo);
+
+    }
+
+    @PostMapping
+    public Categoria createCategoria(@RequestBody @Valid Categoria categoria){
+        return  this.categoriaService.createdCategoria(categoria);
+
+    }
+
+    @DeleteMapping("/{codigo}")
+    public String deleteCatgeoria(@PathVariable String codigo){
+        categoriaService.deleteCategoria(codigo);
+        System.out.println("Catgeoria deletada com sucesso");
+        return "Deletado com sucesso";
+    }
+
+    @PutMapping("/{codigo}")
+    public String updateCategoria(@PathVariable String codigo, @RequestBody Categoria categoria){
+        Categoria existingCategoria = categoriaService.getCategoriaById(codigo);
+        BeanUtils.copyProperties(categoria, existingCategoria, "categoria_id");
+        System.out.println("Categoria atualizada com sucesso");
+        categoriaService.saveCategoria(existingCategoria);
+        return "Categoria atualizada com sucesso";
     }
 
 
