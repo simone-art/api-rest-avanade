@@ -1,5 +1,6 @@
 package com.example.projectApiRestAvanade.service;
 
+import com.example.projectApiRestAvanade.entity.Categoria;
 import com.example.projectApiRestAvanade.entity.Product;
 
 import java.util.List;
@@ -17,6 +18,18 @@ public interface ProductService {
         public Product updateProduct(String codigo, Product product);
 
         public Product saveProduct(Product product);
+
+        public List<Categoria> getAllCategoria();
+
+        public Categoria getCategoriaById(String codigo);
+
+        public Categoria createCategoria(Categoria categoria);
+
+        public void deleteCategoria(String codigo);
+
+        public Categoria updateCategoria(String codigo, Categoria categoria);
+
+        public Product saveProduct(Categoria categoria);
 
 
 }
