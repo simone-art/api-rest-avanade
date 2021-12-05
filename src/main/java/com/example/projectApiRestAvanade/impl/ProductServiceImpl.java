@@ -60,7 +60,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Categoria getCategoriaById(String codigo) {
         Categoria categorias = new Categoria();
-        categorias.getCategoria().getCodigo();
+        categorias.getCodigo();
         return this.categoriaRepository.findById(codigo)
         .orElseThrow(() -> new IllegalArgumentException("Categoria não existe"));
     }
@@ -82,7 +82,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product saveProduct(Categoria categoria) {
+    public Categoria saveProduct(Categoria categoria) {
         return categoriaRepository.save(categoria);
     }
 

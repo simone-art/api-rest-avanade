@@ -29,7 +29,7 @@ public interface ProductService {
 
         public Categoria updateCategoria(String codigo, Categoria categoria);
 
-        public Product saveProduct(Categoria categoria);
+        public Categoria saveProduct(Categoria categoria);
 
 
 }

@@ -2,7 +2,6 @@ package com.example.projectApiRestAvanade.controller;
 
 
 import com.example.projectApiRestAvanade.entity.Categoria;
-import com.example.projectApiRestAvanade.entity.Product;
 import com.example.projectApiRestAvanade.repository.CategoriaRepository;
 import com.example.projectApiRestAvanade.service.CategoriaService;
 import org.springframework.beans.BeanUtils;

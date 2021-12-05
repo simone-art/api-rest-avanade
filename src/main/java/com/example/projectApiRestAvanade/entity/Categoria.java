@@ -5,12 +5,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+
 
 @Data
 @Document
-public class Categoria extends Product {
+public class Categoria {
 
     @Id
     private String codigo;

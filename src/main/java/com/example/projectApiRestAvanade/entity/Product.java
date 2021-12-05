@@ -4,6 +4,8 @@ package com.example.projectApiRestAvanade.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 
@@ -27,6 +29,9 @@ public class Product implements Serializable {
     @NotBlank(message = "Campo nao pode estar em branco")
     private String porte;
 
+    //Atributo de referência
+    //Definindo tipo de relacionamento chave estrangeira
+    @ManyToOne
     private Categoria categoria;
 
    }
