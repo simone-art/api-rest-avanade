@@ -15,7 +15,7 @@ public class Categoria {
     private String codigo;
 
     @NotBlank(message = "Campo nao pode estar em branco")
-    private String nome;
+    private String nomeCategoria;
 
     @NotBlank(message = "Campo nao pode estar em branco")
     private String departamento;

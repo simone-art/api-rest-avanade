@@ -34,7 +34,7 @@ public class Product implements Serializable {
     //Definindo tipo de relacionamento da chave estrangeira
     //JoinColumn, propiedade funciona para chave estrangeira
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(nullable = false)
     private Categoria categoria;
 
    }
