@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.*;
 import java.io.Serializable;
@@ -30,8 +31,10 @@ public class Product implements Serializable {
     private String porte;
 
     //Atributo de referência
-    //Definindo tipo de relacionamento chave estrangeira
+    //Definindo tipo de relacionamento da chave estrangeira
+    //JoinColumn, propiedade funciona para chave estrangeira
     @ManyToOne
+    @JoinColumn
     private Categoria categoria;
 
    }
