@@ -52,8 +52,6 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product createProduct(@RequestBody @Valid Product product){
@@ -63,11 +61,14 @@ public class ProductController {
 
 
     @DeleteMapping("/{codigo}")
-    public String deleteProduct(@PathVariable String codigo){
+    public ResponseEntity<Void> deleteProduct(@PathVariable String codigo){
+        if(productRepository.existsById(codigo)){
+            ResponseEntity.notFound().build();
+        }
         productService.deleteProduct(codigo);
-        System.out.println("Producto deletado com sucesso");
-        return "Deletado com sucesso";
+        return ResponseEntity.noContent().build();
     }
+
 
     @PutMapping("/{codigo}")
     public String updateProduct(@PathVariable String codigo, @RequestBody Product product, Categoria categoria){
