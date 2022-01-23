@@ -3,6 +3,7 @@ package com.example.projectApiRestAvanade.controller;
 import com.example.projectApiRestAvanade.entity.Categoria;
 import com.example.projectApiRestAvanade.entity.Product;
 import com.example.projectApiRestAvanade.repository.CategoriaRepository;
+import com.example.projectApiRestAvanade.repository.ProductRepository;
 import com.example.projectApiRestAvanade.service.CategoriaService;
 import com.example.projectApiRestAvanade.service.ProductService;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +28,9 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
     private CategoriaService categoriaService;
 
     @Autowired
@@ -41,9 +45,9 @@ public class ProductController {
     //O optional extrai o que está dentro do cliente e se não tiver nada retorna nulo
     @GetMapping("/{codigo}")
     public ResponseEntity<Product> buscarProdutoId(@PathVariable String codigo) {
-        Product product = productService.getProductById(codigo);
-        if(product != null){
-            return ResponseEntity.ok(product);
+        Optional<Product>  product = productRepository.findById(codigo);
+        if(product.isPresent()){
+            return ResponseEntity.ok(product.get());
         }
         return ResponseEntity.notFound().build();
     }
