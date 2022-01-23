@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @Document
-public class Categoria {
+public class Categoria  {
 
     @Id
     private String codigo;

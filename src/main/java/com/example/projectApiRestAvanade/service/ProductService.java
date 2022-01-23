@@ -19,17 +19,17 @@ public interface ProductService {
 
         public Product saveProduct(Product product);
 
-        public List<Categoria> getAllCategoria();
-
-        public Categoria getCategoriaById(String codigo);
-
-        public Categoria createCategoria(Categoria categoria);
-
-        public void deleteCategoria(String codigo);
-
-        public Categoria updateCategoria(String codigo, Categoria categoria);
-
-        public Categoria saveProduct(Categoria categoria);
+//        public List<Categoria> getAllCategoria();
+//
+//        public Categoria getCategoriaById(String codigo);
+//
+//        public Categoria createCategoria(Categoria categoria);
+//
+//        public void deleteCategoria(String codigo);
+//
+//        public Categoria updateCategoria(String codigo, Categoria categoria);
+//
+//        public Categoria saveProduct(Categoria categoria);
 
 
 }

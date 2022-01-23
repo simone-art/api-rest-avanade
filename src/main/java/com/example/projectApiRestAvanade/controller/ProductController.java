@@ -2,6 +2,7 @@ package com.example.projectApiRestAvanade.controller;
 
 import com.example.projectApiRestAvanade.entity.Categoria;
 import com.example.projectApiRestAvanade.entity.Product;
+import com.example.projectApiRestAvanade.repository.CategoriaRepository;
 import com.example.projectApiRestAvanade.service.CategoriaService;
 import com.example.projectApiRestAvanade.service.ProductService;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +27,9 @@ public class ProductController {
     @Autowired
     private CategoriaService categoriaService;
 
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
     @GetMapping
     public List<Product> getAllProduct(){
      return this.productService.getAllProducts();
@@ -39,7 +43,7 @@ public class ProductController {
 
     @PostMapping
     public Product createProduct(@RequestBody @Valid Product product){
-        return  this.productService.createProduct(product);
+        return this.productService.saveProduct(product);
 
     }
 
@@ -51,11 +55,12 @@ public class ProductController {
     }
 
     @PutMapping("/{codigo}")
-    public String updateProduct(@PathVariable String codigo, @RequestBody Product product){
+    public String updateProduct(@PathVariable String codigo, @RequestBody Product product, Categoria categoria){
         Product existingProduct = productService.getProductById(codigo);
+        //Categoria existingCategoria = productService.getCategoriaById(codigo);
         BeanUtils.copyProperties(product, existingProduct, "product_id");
         System.out.println("Produto atualizado com sucesso");
-        productService.saveProduct(existingProduct);
+        //productService.saveProduct(existingProduct, existingCategoria);
         return "Produto atualizado com sucesso";
     }
 

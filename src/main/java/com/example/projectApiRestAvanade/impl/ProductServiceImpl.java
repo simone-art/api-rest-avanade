@@ -52,39 +52,39 @@ public class ProductServiceImpl implements ProductService {
         return this.productRepository.save(product);
     }
 
-    @Override
-    public List<Categoria> getAllCategoria() {
-        return this.categoriaRepository.findAll();
-    }
-
-    @Override
-    public Categoria getCategoriaById(String codigo) {
-        Categoria categorias = new Categoria();
-        categorias.getCodigo();
-        return this.categoriaRepository.findById(codigo)
-        .orElseThrow(() -> new IllegalArgumentException("Categoria não existe"));
-    }
-
-    @Override
-    public Categoria createCategoria(Categoria categoria) {
-        return this.categoriaRepository.save(categoria);
-    }
-
-    @Override
-    public void deleteCategoria(String codigo) {
-       categoriaRepository.deleteById(codigo);
-    }
-
-    @Override
-    public Categoria updateCategoria(String codigo, Categoria categoria) {
-        categoriaRepository.findById(codigo);
-        return categoriaRepository.save(categoria);
-    }
-
-    @Override
-    public Categoria saveProduct(Categoria categoria) {
-        return categoriaRepository.save(categoria);
-    }
+//    @Override
+//    public List<Categoria> getAllCategoria() {
+//        return this.categoriaRepository.findAll();
+//    }
+//
+//    @Override
+//    public Categoria getCategoriaById(String codigo) {
+//        Categoria categorias = new Categoria();
+//        categorias.getCodigo();
+//        return this.categoriaRepository.findById(codigo)
+//        .orElseThrow(() -> new IllegalArgumentException("Categoria não existe"));
+//    }
+//
+//    @Override
+//    public Categoria createCategoria(Categoria categoria) {
+//        return this.categoriaRepository.save(categoria);
+//    }
+//
+//    @Override
+//    public void deleteCategoria(String codigo) {
+//       categoriaRepository.deleteById(codigo);
+//    }
+//
+//    @Override
+//    public Categoria updateCategoria(String codigo, Categoria categoria) {
+//        categoriaRepository.findById(codigo);
+//        return categoriaRepository.save(categoria);
+//    }
+//
+//    @Override
+//    public Categoria saveProduct(Categoria categoria) {
+//        return categoriaRepository.save(categoria);
+//    }
 
 
 }
