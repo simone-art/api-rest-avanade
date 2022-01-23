@@ -71,14 +71,15 @@ public class ProductController {
 
 
     @PutMapping("/{codigo}")
-    public String updateProduct(@PathVariable String codigo, @RequestBody Product product, Categoria categoria){
-        Product existingProduct = productService.getProductById(codigo);
-        //Categoria existingCategoria = productService.getCategoriaById(codigo);
-        BeanUtils.copyProperties(product, existingProduct, "product_id");
-        System.out.println("Produto atualizado com sucesso");
-        //productService.saveProduct(existingProduct, existingCategoria);
-        return "Produto atualizado com sucesso";
+    public ResponseEntity<Product> updateProduct(@Valid @PathVariable String codigo, @RequestBody Product product){
+        if(!productRepository.existsById(codigo)){
+            ResponseEntity.notFound().build();
+        }
+        product.setCodigo(codigo);
+        product = productService.saveProduct(product);
+        return ResponseEntity.ok(product);
     }
+
 
     //Metodo que retorna mensagems de erro caso ocorra um bad request e valida
     //@ResponseStatus(HttpStatus.BAD_GATEWAY) intercepta toda bad request pra devolver as mensagens
