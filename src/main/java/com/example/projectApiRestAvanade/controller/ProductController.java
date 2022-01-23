@@ -8,6 +8,7 @@ import com.example.projectApiRestAvanade.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -35,17 +37,26 @@ public class ProductController {
      return this.productService.getAllProducts();
     }
 
+    //OPTIONAL é um container que pode estar nulo ou conter algum dado
+    //O optional extrai o que está dentro do cliente e se não tiver nada retorna nulo
     @GetMapping("/{codigo}")
-    public Product getProductById(@PathVariable String codigo){
-        return this.productService.getProductById(codigo);
-
+    public ResponseEntity<Product> buscarProdutoId(@PathVariable String codigo) {
+        Product product = productService.getProductById(codigo);
+        if(product != null){
+            return ResponseEntity.ok(product);
+        }
+        return ResponseEntity.notFound().build();
     }
+
+
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Product createProduct(@RequestBody @Valid Product product){
-        return this.productService.saveProduct(product);
+        return productService.saveProduct(product);
 
     }
+
 
     @DeleteMapping("/{codigo}")
     public String deleteProduct(@PathVariable String codigo){
